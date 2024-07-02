@@ -1,0 +1,28 @@
+/* client/public/css/styles.css */
+.archives {
+  padding: 20px;
+}
+
+.thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.thumb {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.thumb img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.thumb p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
