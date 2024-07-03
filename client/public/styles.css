@@ -6,10 +6,20 @@ body {
 }
 
 header {
-  background-color: #333;
+  background-color: #000; /* True black */
   color: white;
   padding: 10px;
   text-align: center;
+}
+
+header img {
+  max-height: 50px;
+  vertical-align: middle;
+}
+
+nav {
+  display: inline-block;
+  margin-left: 20px;
 }
 
 nav a {
