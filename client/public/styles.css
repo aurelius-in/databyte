@@ -1,6 +1,13 @@
 /* client/public/styles.css */
+@font-face {
+  font-family: 'Simple tfb';
+  src: url('fonts/Simple tfb.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Simple tfb', Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
