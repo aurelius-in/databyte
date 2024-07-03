@@ -19,10 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
       .then(response => response.json())
       .then(data => {
         data.forEach(date => {
+          const formattedDate = formatDate(date);
           const thumbHTML = `
             <div class="thumb" data-date="${date}">
-              <img src="client/public/images/thumbs/${date}.png" alt="Thumbnail ${date}">
-              <p>${formatDate(date)}</p>
+              <img src="client/public/images/thumbs/${date}.png" alt="Thumbnail ${formattedDate}">
+              <p>${formattedDate}</p>
             </div>
           `;
           thumbsElement.innerHTML += thumbHTML;
