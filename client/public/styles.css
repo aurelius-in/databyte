@@ -40,13 +40,22 @@ main {
 }
 
 footer {
-  background-color: #333;
+  background-color: #000000; /* True black */
   color: white;
   text-align: center;
   padding: 10px;
   position: fixed;
   width: 100%;
   bottom: 0;
+}
+
+footer .highlight {
+  color: #1e90ff; /* Match the blue color from the logo */
+}
+
+footer .highlight .dot {
+  font-size: 200%; /* Larger font size */
+  font-weight: bold; /* Bold */
 }
 
 .thumbs {
