@@ -49,14 +49,13 @@ footer {
   color: white;
   text-align: center;
   padding: 10px;
-  position: fixed;
+  position: relative;
   width: 100%;
-  bottom: 0;
   font-family: 'Simple tfb', Arial, sans-serif;
 }
 
 footer .highlight {
-  color: #1ea1ff; /* Lighter blue color */
+  color: #5D96E8; /* Updated blue color */
 }
 
 footer .dot {
@@ -70,7 +69,7 @@ footer .text-white {
 }
 
 footer .text-blue {
-  color: #1ea1ff; /* Lighter blue color */
+  color: #5D96E8; /* Updated blue color */
 }
 
 footer p .copyright {
@@ -116,5 +115,5 @@ article img {
 
 h1, h2 {
   font-family: 'Simple tfb', Arial, sans-serif;
-  color: #1ea1ff; /* Lighter blue color for headlines */
+  color: #5D96E8; /* Updated blue color for headlines */
 }
