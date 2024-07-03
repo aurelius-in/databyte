@@ -67,6 +67,10 @@ footer .text-blue {
   color: #1e90ff; /* Match the blue color from the logo */
 }
 
+footer .copyright {
+  color: white; /* White color for the © symbol */
+}
+
 .thumbs {
   display: flex;
   flex-wrap: wrap;
