@@ -56,7 +56,7 @@ footer {
 }
 
 footer .highlight {
-  color: #1e90ff; /* Match the blue color from the logo */
+  color: #1ea1ff; /* Lighter blue color */
 }
 
 footer .dot {
@@ -70,7 +70,7 @@ footer .text-white {
 }
 
 footer .text-blue {
-  color: #1e90ff; /* Match the blue color from the logo */
+  color: #1ea1ff; /* Lighter blue color */
 }
 
 footer p .copyright {
@@ -114,6 +114,7 @@ article img {
   margin: 0 auto;
 }
 
-h2, h1 {
+h1, h2 {
   font-family: 'Simple tfb', Arial, sans-serif;
+  color: #1ea1ff; /* Lighter blue color for headlines */
 }
