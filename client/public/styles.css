@@ -94,3 +94,8 @@ footer .copyright {
   font-size: 14px;
   color: #555;
 }
+
+footer .copyright {
+  color: white; /* White color for the © symbol */
+}
+
