@@ -39,7 +39,7 @@ images.forEach((image) => {
   thumbDiv.className = 'thumb';
 
   const img = document.createElement('img');
-  img.src = `images/thumbs/${image}`;
+  img.src = `client/public/images/thumbs/${image}`;
   img.alt = `Issue ${image}`;
 
   const dateP = document.createElement('p');
