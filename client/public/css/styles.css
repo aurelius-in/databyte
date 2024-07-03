@@ -69,6 +69,7 @@ footer .text-blue {
 
 footer .copyright {
   color: white !important; /* Force white color for the © symbol */
+  font-family: Arial, sans-serif; /* Use Arial font for the © symbol */
 }
 
 .thumbs {
