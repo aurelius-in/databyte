@@ -2,6 +2,17 @@
 document.addEventListener('DOMContentLoaded', () => {
   const thumbsElement = document.getElementById('thumbs');
 
+  // Function to convert date format
+  function formatDate(dateStr) {
+    const year = `20${dateStr.slice(0, 2)}`;
+    const month = dateStr.slice(2, 4);
+    const day = dateStr.slice(4, 6);
+    const date = new Date(`${year}-${month}-${day}`);
+    
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
+  }
+
   // Function to load thumbnails from issues.json
   function loadThumbnails() {
     fetch('client/public/json/issues.json')
@@ -11,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const thumbHTML = `
             <div class="thumb" data-date="${date}">
               <img src="client/public/images/thumbs/${date}.png" alt="Thumbnail ${date}">
-              <p>${date.replace(/(\d{2})(\d{2})(\d{2})/, '$1-$2-$3')}</p>
+              <p>${formatDate(date)}</p>
             </div>
           `;
           thumbsElement.innerHTML += thumbHTML;
