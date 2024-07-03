@@ -53,9 +53,18 @@ footer .highlight {
   color: #1e90ff; /* Match the blue color from the logo */
 }
 
-footer .highlight .dot {
+footer .dot {
   font-size: 200%; /* Larger font size */
   font-weight: bold; /* Bold */
+  color: white; /* White color */
+}
+
+footer .text-white {
+  color: white;
+}
+
+footer .text-blue {
+  color: #1e90ff; /* Match the blue color from the logo */
 }
 
 .thumbs {
