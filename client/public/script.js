@@ -1,56 +1,49 @@
 // client/public/script.js
 
-// Helper function to convert filename to readable date format
-const convertFilenameToDate = (filename) => {
-  const year = `20${filename.slice(0, 2)}`;
-  const month = filename.slice(2, 4);
-  const day = filename.slice(4, 6);
-  const date = new Date(year, month - 1, day);
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return date.toLocaleDateString(undefined, options);
-};
+document.addEventListener('DOMContentLoaded', () => {
+  const mainElement = document.querySelector('main');
 
-// Generate the list of images from 240704.png back to 240204.png with dates on the 4th, 11th, 18th, and 25th of each month
-const generateImageList = () => {
-  const images = [];
-  const startDate = new Date(2024, 6, 4); // July 4, 2024
-  const endDate = new Date(2024, 1, 4); // February 4, 2024
+  // Function to load articles
+  function loadArticles(date) {
+    // Clear the current articles
+    mainElement.innerHTML = '';
 
-  let currentDate = startDate;
-  while (currentDate >= endDate) {
-    const year = currentDate.getFullYear().toString().slice(2);
-    const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
-    const days = [4, 11, 18, 25];
+    // Define categories to look for
+    const categories = ['startups', 'mobile', 'medicine', 'education', 'robotics', 'reads', 'ai', 'cybersecurity', 'gaming', 'industry', 'reviews'];
 
-    days.forEach((day) => {
-      const dateStr = `${year}${month}${day.toString().padStart(2, '0')}.png`;
-      images.push(dateStr);
+    // Fetch and display articles for each category that match the date
+    categories.forEach(category => {
+      const jsonFile = `client/public/json/${date}${category}.json`;
+      fetch(jsonFile)
+        .then(response => response.json())
+        .then(data => {
+          const articleHTML = `
+            <article>
+              <header>
+                <img src="client/public/images/headers/${category}.png" alt="${category} header">
+                <h2>${data.title}</h2>
+                <p>By ${data.author}</p>
+              </header>
+              <img src="client/public/images/articles/${data.image}" alt="${category} article photo">
+              <p>${data.content}</p>
+            </article>
+          `;
+          mainElement.innerHTML += articleHTML;
+        })
+        .catch(error => console.error('Error loading article:', error));
     });
-
-    // Move to the previous month
-    currentDate.setMonth(currentDate.getMonth() - 1);
   }
 
-  return images;
-};
+  // Add event listeners to thumbnails in the archives page
+  const thumbElements = document.querySelectorAll('.thumb img');
+  thumbElements.forEach(thumb => {
+    thumb.addEventListener('click', (event) => {
+      const date = event.target.src.split('/').pop().slice(0, 6); // Extract date from filename
+      loadArticles(date);
+    });
+  });
 
-const images = generateImageList().reverse();
-
-const archivesDiv = document.getElementById('archives');
-
-images.forEach((image) => {
-  const thumbDiv = document.createElement('div');
-  thumbDiv.className = 'thumb';
-
-  const img = document.createElement('img');
-  img.src = `client/public/images/thumbs/${image}`;
-  img.alt = `Issue ${image}`;
-
-  const dateP = document.createElement('p');
-  dateP.textContent = convertFilenameToDate(image);
-
-  thumbDiv.appendChild(img);
-  thumbDiv.appendChild(dateP);
-
-  archivesDiv.appendChild(thumbDiv);
+  // Example: Load articles for a specific date on initial page load if desired
+  // const date = '240625';
+  // loadArticles(date);
 });
