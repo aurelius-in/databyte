@@ -10,7 +10,7 @@ const convertFilenameToDate = (filename) => {
   return date.toLocaleDateString(undefined, options);
 };
 
-// Generate the list of images from 240704.png back to 240204.png
+// Generate the list of images from 240704.png back to 240204.png with dates on the 4th, 11th, 18th, and 25th of each month
 const generateImageList = () => {
   const images = [];
   const startDate = new Date(2024, 6, 4); // July 4, 2024
@@ -20,17 +20,21 @@ const generateImageList = () => {
   while (currentDate >= endDate) {
     const year = currentDate.getFullYear().toString().slice(2);
     const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
-    const day = currentDate.getDate().toString().padStart(2, '0');
-    images.push(`${year}${month}${day}.png`);
+    const days = [4, 11, 18, 25];
 
-    // Move to the previous issue date (7 days back)
-    currentDate.setDate(currentDate.getDate() - 7);
+    days.forEach((day) => {
+      const dateStr = `${year}${month}${day.toString().padStart(2, '0')}.png`;
+      images.push(dateStr);
+    });
+
+    // Move to the previous month
+    currentDate.setMonth(currentDate.getMonth() - 1);
   }
 
   return images;
 };
 
-const images = generateImageList();
+const images = generateImageList().reverse();
 
 const archivesDiv = document.getElementById('archives');
 
