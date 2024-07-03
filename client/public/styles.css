@@ -6,8 +6,10 @@
   font-style: normal;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+
 body {
-  font-family: 'Simple tfb', Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -94,6 +96,11 @@ footer p .copyright {
   margin-top: 10px;
   font-size: 14px;
   color: #555;
+  font-family: 'Merriweather', serif; /* Use Merriweather for dates */
+}
+
+article {
+  font-family: 'Merriweather', serif; /* Use Merriweather for article body text */
 }
 
 article img {
@@ -101,4 +108,8 @@ article img {
   height: auto;
   display: block;
   margin: 0 auto;
+}
+
+h2, h1 {
+  font-family: 'Simple tfb', Arial, sans-serif;
 }
