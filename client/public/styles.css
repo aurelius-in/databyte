@@ -54,7 +54,7 @@ footer .highlight {
 }
 
 footer .dot {
-  font-size: 250%; /* Larger font size */
+  font-size: 300%; /* Larger font size */
   font-weight: bold; /* Bold */
   color: white; /* White color */
 }
@@ -94,4 +94,11 @@ footer p .copyright {
   margin-top: 10px;
   font-size: 14px;
   color: #555;
+}
+
+article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
