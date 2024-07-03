@@ -54,7 +54,7 @@ footer .highlight {
 }
 
 footer .dot {
-  font-size: 300%; /* Larger font size */
+  font-size: 200%; /* Larger font size */
   font-weight: bold; /* Bold */
   color: white; /* White color */
 }
@@ -67,7 +67,7 @@ footer .text-blue {
   color: #1e90ff; /* Match the blue color from the logo */
 }
 
-footer .copyright {
+footer p .copyright {
   color: white !important; /* Force white color for the © symbol */
   font-family: Arial, sans-serif; /* Use Arial font for the © symbol */
 }
