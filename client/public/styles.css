@@ -41,6 +41,7 @@ nav a {
 
 main {
   padding: 20px;
+  padding-bottom: 100px; /* Add space at the bottom */
 }
 
 footer {
