@@ -19,6 +19,7 @@ header {
   color: white;
   padding: 10px;
   text-align: center;
+  font-family: 'Simple tfb', Arial, sans-serif;
 }
 
 header img.logo {
@@ -35,6 +36,7 @@ nav a {
   margin: 0 15px;
   color: white;
   text-decoration: none;
+  font-family: 'Simple tfb', Arial, sans-serif;
 }
 
 main {
@@ -49,6 +51,7 @@ footer {
   position: fixed;
   width: 100%;
   bottom: 0;
+  font-family: 'Simple tfb', Arial, sans-serif;
 }
 
 footer .highlight {
