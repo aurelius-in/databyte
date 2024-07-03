@@ -68,7 +68,7 @@ footer .text-blue {
 }
 
 footer .copyright {
-  color: white; /* White color for the © symbol */
+  color: white !important; /* Force white color for the © symbol */
 }
 
 .thumbs {
@@ -93,8 +93,4 @@ footer .copyright {
   margin-top: 10px;
   font-size: 14px;
   color: #555;
-}
-
-footer .copyright {
-  color: white; /* White color for the © symbol */
 }
