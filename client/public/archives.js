@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const thumbHTML = `
             <div class="thumb" data-date="${date}">
               <img src="client/public/images/thumbs/${date}.png" alt="Thumbnail ${formattedDate}">
-              <p>${formattedDate}</p>
+              <p class="thumb-date">${formattedDate}</p>
             </div>
           `;
           thumbsElement.innerHTML += thumbHTML;
