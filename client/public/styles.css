@@ -25,10 +25,13 @@ header {
 header img.logo {
   max-width: 100%;
   height: auto;
+  display: block;
+  margin: 0 auto; /* Center the logo */
 }
 
 nav {
-  display: inline-block;
+  display: flex;
+  justify-content: center; /* Center the navigation */
   margin-top: 10px;
 }
 
@@ -42,6 +45,7 @@ nav a {
 main {
   padding: 20px;
   padding-bottom: 100px; /* Add space at the bottom */
+  text-align: center; /* Center the content */
 }
 
 footer {
@@ -81,6 +85,7 @@ footer p .copyright {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: center; /* Center the thumbnails */
 }
 
 .thumb {
