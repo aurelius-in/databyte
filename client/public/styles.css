@@ -118,3 +118,8 @@ h1, h2 {
   font-family: 'Simple tfb', Arial, sans-serif;
   color: #5D96E8; /* Updated blue color for headlines */
 }
+
+.article-date {
+  font-weight: bold; /* Make article date bold */
+  margin-top: -10px; /* Adjust spacing */
+}
