@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const month = dateStr.slice(2, 4) - 1; // Adjust month to be 0-indexed
     const day = dateStr.slice(4, 6);
     const date = new Date(year, month, day);
-    
+
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return date.toLocaleDateString('en-US', options);
   }
@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     categories.forEach(category => {
       const jsonFile = `client/public/json/${date}${category}.json`;
-      console.log('Fetching:', jsonFile); // Debugging statement
       fetch(jsonFile)
         .then(response => {
           if (response.ok) {
@@ -42,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <header>
                 <img src="client/public/images/headers/${category}.png" alt="${category} header">
                 <h2>${data.title}</h2>
-                <p>By ${data.author}</p>
+                <p class="article-author">${data.author}</p>
                 <p class="article-date">${formattedDate}</p>
               </header>
               <img src="client/public/images/articles/${data.image}" alt="${category} article photo">
