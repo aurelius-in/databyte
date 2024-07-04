@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Function to convert date format
   function formatDate(dateStr) {
     const year = `20${dateStr.slice(0, 2)}`;
-    const month = dateStr.slice(2, 4);
+    const month = dateStr.slice(2, 4) - 1; // Adjust month to be 0-indexed
     const day = dateStr.slice(4, 6);
-    const date = new Date(`${year}-${month}-${day}`);
+    const date = new Date(year, month, day);
     
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return date.toLocaleDateString('en-US', options);
