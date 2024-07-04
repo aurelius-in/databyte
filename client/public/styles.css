@@ -119,7 +119,13 @@ h1, h2 {
   color: #5D96E8; /* Updated blue color for headlines */
 }
 
+.article-author {
+  font-weight: bold;
+  font-size: 1.2em;
+  font-family: 'Merriweather', serif; /* Use Merriweather for author's name */
+}
+
 .article-date {
-  font-weight: bold; /* Make article date bold */
-  margin-top: -10px; /* Adjust spacing */
+  font-size: 0.9em;
+  font-family: 'Merriweather', serif; /* Use Merriweather for article date */
 }
