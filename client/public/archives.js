@@ -1,6 +1,14 @@
-// client/public/archives.js
+// client/public/article.js
 document.addEventListener('DOMContentLoaded', () => {
-  const thumbsElement = document.getElementById('thumbs');
+  const articlesElement = document.getElementById('articles');
+
+  // Function to get URL parameter
+  function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    const results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+  }
 
   // Function to convert date format
   function formatDate(dateStr) {
@@ -8,38 +16,49 @@ document.addEventListener('DOMContentLoaded', () => {
     const month = dateStr.slice(2, 4) - 1; // Adjust month to be 0-indexed
     const day = dateStr.slice(4, 6);
     const date = new Date(year, month, day);
-    
+
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return date.toLocaleDateString('en-US', options);
   }
 
-  // Function to load thumbnails from issues.json
-  function loadThumbnails() {
-    fetch('client/public/json/issues.json')
-      .then(response => response.json())
-      .then(data => {
-        data.forEach(date => {
-          const formattedDate = formatDate(date);
-          const thumbHTML = `
-            <div class="thumb" data-date="${date}">
-              <img src="client/public/images/thumbs/${date}.png" alt="Thumbnail ${formattedDate}">
-              <p class="thumb-date">${formattedDate}</p>
-            </div>
-          `;
-          thumbsElement.innerHTML += thumbHTML;
-        });
+  // Function to load articles based on date
+  function loadArticles(date) {
+    const categories = ['startups', 'mobile', 'medicine', 'education', 'robotics', 'reads', 'ai', 'cybersecurity', 'gaming', 'industry', 'reviews'];
 
-        // Add click event listeners to thumbnails
-        document.querySelectorAll('.thumb').forEach(thumb => {
-          thumb.addEventListener('click', event => {
-            const date = event.currentTarget.getAttribute('data-date');
-            window.location.href = `article.html?date=${date}`;
-          });
-        });
-      })
-      .catch(error => console.error('Error loading thumbnails:', error));
+    categories.forEach(category => {
+      const jsonFile = `client/public/json/${date}${category}.json`;
+      fetch(jsonFile)
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error('Article not found: ' + jsonFile);
+        })
+        .then(data => {
+          const formattedDate = formatDate(date);
+          const articleHTML = `
+            <article>
+              <header>
+                <img src="client/public/images/headers/${category}.png" alt="${category} header">
+                <h2>${data.title}</h2>
+                <p>By ${data.author}</p>
+                <p class="article-date">${formattedDate}</p>
+              </header>
+              <img src="client/public/images/articles/${data.image}" alt="${category} article photo">
+              <p>${data.content}</p>
+            </article>
+          `;
+          articlesElement.innerHTML += articleHTML;
+        })
+        .catch(error => console.error('Error loading article:', error));
+    });
   }
 
-  // Initial load of thumbnails
-  loadThumbnails();
+  // Get date from URL and load articles
+  const date = getUrlParameter('date');
+  if (date) {
+    loadArticles(date);
+  } else {
+    console.error('No date parameter found in URL');
+  }
 });
