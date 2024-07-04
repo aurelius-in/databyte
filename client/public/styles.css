@@ -95,11 +95,12 @@ footer p .copyright {
   display: block;
 }
 
-.thumb p {
+.thumb p.thumb-date {
   margin-top: 10px;
   font-size: 14px;
   color: #555;
   font-family: 'Merriweather', serif; /* Use Merriweather for dates */
+  font-weight: bold; /* Make dates bold */
 }
 
 article {
